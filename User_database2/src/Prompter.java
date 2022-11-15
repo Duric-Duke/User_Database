@@ -6,12 +6,13 @@ public class Prompter {
     static int id = 0;
 
     public void menu(){
-        System.out.println("Pick an Option: ");
-        System.out.println("1. Add User: ");
-        System.out.println("2. Update: ");
-        System.out.println("3. Delete: ");
-        System.out.println("4. List: ");
-        System.out.println("5. Exit.");
+        // System.out.println("Pick an Option: ");
+        // System.out.println("1. Add User: ");
+        // System.out.println("2. Update: ");
+        // System.out.println("3. Delete: ");
+        // System.out.println("4. List: ");
+        // System.out.println("5. Exit.");
+        System.out.println("_____Menu_____\nPick an Option:\n 1. Add user: \n 2. Update user: \n 3. Delete user: \n 4. List \n 5. Exit");
         String inp = prompter.next();
         switch (inp) {
             case "1":
@@ -64,8 +65,14 @@ public class Prompter {
         String surname = prompter.next();
         System.out.println("What is Your Date of Birth?: DD/MM/YYYY: ");
         String dob = prompter.next();
-        
-        UserDao.update(name, surname, email, dob);
+        if(DateValidator.isValid(dob)){
+            String uid = name.substring(0, 3) + id++;
+            UserDao.update(name, surname, email, dob);
+        }
+        else{
+            System.out.println("Invalid Date of Birth. \nPlease input Date of Birth: DD/MM/YYYY: ");
+            update();
+        }
         
     }
     public void delete(){

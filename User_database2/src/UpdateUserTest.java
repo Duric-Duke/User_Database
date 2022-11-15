@@ -3,7 +3,7 @@ public class UpdateUserTest {
     public static void main(String [] args){
 
         UserDao.create("Bokamoso", "Semoko", "theberamathebane3@gmail.com", "01/01/2000", "10");
-        UserDao.update("Thebe", "Ramathebane", "theberamathebane3@gmail.com", "01/01/2022");
+        UserDao.update("Thebe", "Ramathebane", "theberamathebane3@gmail.com", "01/01/2020");
         // UserDao.update("Thabo", "Moropoli", "thabomoropoli@gmail.com", "02/02/2023");
         
         print(UserDao.getAll());

@@ -13,6 +13,11 @@ public class UserDao {
         user[3] = dob;
         user[4] = id;
         users[index++] = user;
+        String username = user[0] + " " + user[1];
+        System.out.println("The following user: " + username + " has been added the database.😁");
+        CreateUserDaoFile.writeArrayToFile(users, "Users.txt");
+        CreateUserDaoFile.createJsonFile(users, "Users.json");
+        // CreateUserDaoFile.writeArrayToFile(users, "Users.json");
     }
     // Update user; name, surname and Date of Birth(dob).
     public static void update(String name, String surname, String email, String dob) {
@@ -39,7 +44,6 @@ public class UserDao {
     public static void delete(String email) {
         for(int i = 0; i < users.length; i++){
             if((users[i] != null) && email.equals(users[i][2])){
-                System.out.println("Testing delete...");
                 users[i] = null;
             }
         }
